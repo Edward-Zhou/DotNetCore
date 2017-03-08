@@ -100,9 +100,9 @@ namespace CoreMVCWebAPI.Controllers
             todo.Name = todoItem.Name;
             //_todoContext.Update(todoItem);
             //_todoContext.SaveChanges();
-            _todoContext.TodoItems.Update(todoItem);
-            _todoContext.SaveChanges();
-            //_context.Update(todoItem);
+            //_todoContext.TodoItems.Update(todoItem);
+            //_todoContext.SaveChanges();
+            _context.Update(todoItem);
             return RedirectToAction("Index");
         }
         //Get /<controller>/Delete
@@ -116,9 +116,9 @@ namespace CoreMVCWebAPI.Controllers
         public IActionResult DeleteConfirmed(long id)
         {
             var todoItem = _context.Find(id);
-            //_context.Remove(id);
-            _todoContext.TodoItems.Remove(todoItem);
-            _todoContext.SaveChanges();
+            _context.Remove(id);
+            //_todoContext.TodoItems.Remove(todoItem);
+            //_todoContext.SaveChanges();
             return RedirectToAction("Index");
         }
 

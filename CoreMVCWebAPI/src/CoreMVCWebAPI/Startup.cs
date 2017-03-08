@@ -31,15 +31,15 @@ namespace CoreMVCWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //inject repository into DI container, use database in memory
-            services.AddDbContext<TodoContext>(options => options.UseInMemoryDatabase().UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            //services.AddDbContext<TodoContext>(options => options.UseInMemoryDatabase().UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
             //inject repository into DI container, and use sql databse
-            //services.AddDbContext<TodoContext>(options=>options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
 
             //The first generic type represents the type (typically an interface) that will be requested from the container. 
             //The second generic type represents the concrete type that will be instantiated by the container and used to fulfill such requests.
-            services.AddSingleton<ITodoRepository, TodoRepository>();
+            services.AddScoped<ITodoRepository, TodoRepository>();
 
             //add mvc service to container, this is conventional routing
             //This also applys to web api which is Attribute Routing

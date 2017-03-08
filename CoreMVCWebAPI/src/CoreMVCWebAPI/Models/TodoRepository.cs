@@ -14,7 +14,7 @@ namespace CoreMVCWebAPI.Models
         {
             _context = context;
             //initialize database
-            Add(new TodoItem { Name = "Item1" });
+            //Add(new TodoItem { Name = "Item1" });
             //Add(new TodoItem { Name = "Item2" });
             //Add(new TodoItem { Name = "Item3" });
         }
